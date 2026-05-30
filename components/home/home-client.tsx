@@ -307,7 +307,7 @@ Details: ${formData.details}`;
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
             {[
               { title: "Hotels & Resorts", image: "/porcelain-tableware-for-hotel-restore.webp", alt: "Ceramic tableware for hotels and resorts" },
-              { title: "Restaurants", image: "/color-glaze.webp", alt: "Ceramic plates and bowls for restaurants" },
+              { title: "Restaurants", image: "/porcelain-tableware-for-restaurants.webp", alt: "Ceramic plates and bowls for restaurants" },
               { title: "Cafes & Bistros", image: "/kiln-transformation.webp", alt: "Ceramic mugs and cups for cafes" },
               { title: "Catering Services", image: "/alice.webp", alt: "Bulk ceramic tableware for catering" },
               { title: "Retail Stores", image: "/color-glaze.webp", alt: "Wholesale ceramics for retail" },
