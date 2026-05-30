@@ -254,7 +254,7 @@ Details: ${formData.details}`;
               {/* 左侧大图 - 60%宽度 */}
               <div className="relative w-[60%] h-full">
                 <Image 
-                  src="/alice.webp" 
+                  src="/chinese-ceraimc-manufacturer.webp" 
                   alt="White ceramic dinnerware plates and bowls wholesale" 
                   fill
                   className="object-cover"
@@ -276,7 +276,7 @@ Details: ${formData.details}`;
                 {/* 右下 - 彩色咖啡杯 */}
                 <div className="relative h-1/2">
                   <Image 
-                    src="/color-glaze.webp" 
+                    src="high-quality-ceramic-manufacturer.webp" 
                     alt="Colorful ceramic coffee cups and saucers" 
                     fill
                     className="object-cover"
