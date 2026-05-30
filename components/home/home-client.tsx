@@ -309,7 +309,7 @@ Details: ${formData.details}`;
               { title: "Hotels & Resorts", image: "/porcelain-tableware-for-hotel-restore.webp", alt: "Ceramic tableware for hotels and resorts" },
               { title: "Restaurants", image: "/porcelain-tableware-for-restaurants.webp", alt: "Ceramic plates and bowls for restaurants" },
               { title: "Cafes & Bistros", image: "/coffee-cup-cafe.webp", alt: "Ceramic mugs and cups for cafes" },
-              { title: "Catering Services", image: "/alice.webp", alt: "Bulk ceramic tableware for catering" },
+              { title: "Catering Services", image: "/aceramic-plates-for-catering-service.webp", alt: "Bulk ceramic tableware for catering" },
               { title: "Retail Stores", image: "/color-glaze.webp", alt: "Wholesale ceramics for retail" },
               { title: "Online Sellers", image: "/kiln-transformation.webp", alt: "Ceramic products for e-commerce" },
               { title: "Corporate Gifts", image: "/alice.webp", alt: "Custom ceramic gifts for corporate" },
