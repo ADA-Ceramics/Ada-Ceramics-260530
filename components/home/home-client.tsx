@@ -309,11 +309,11 @@ Details: ${formData.details}`;
               { title: "Hotels & Resorts", image: "/porcelain-tableware-for-hotel-restore.webp", alt: "Ceramic tableware for hotels and resorts" },
               { title: "Restaurants", image: "/porcelain-tableware-for-restaurants.webp", alt: "Ceramic plates and bowls for restaurants" },
               { title: "Cafes & Bistros", image: "/coffee-cup-cafe.webp", alt: "Ceramic mugs and cups for cafes" },
-              { title: "Catering Services", image: "/aceramic-plates-for-catering-service.webp", alt: "Bulk ceramic tableware for catering" },
+              { title: "Catering Services", image: "/ceramic-plates-for-catering-service.webp", alt: "Bulk ceramic tableware for catering" },
               { title: "Retail Stores", image: "/ceramic-retail.webp", alt: "Wholesale ceramics for retail" },
               { title: "Online Sellers", image: "/amazon-hotsell-ceramic.webp", alt: "Ceramic products for e-commerce" },
               { title: "Corporate Gifts", image: "/ceramic-gift-mug.webp", alt: "Custom ceramic gifts mugs for corporate" },
-              { title: "Home & Living", image: "/ceramic-dinnerware-home.webp", alt: "Ceramic homeware for daily use" },
+              { title: "Home & Living", image: "/ceramic-snack-plate-for-home.webp", alt: "Ceramic homeware for daily use" },
             ].map((item, index) => (
               <Link 
                 key={index}
