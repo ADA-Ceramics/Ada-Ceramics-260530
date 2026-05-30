@@ -12,7 +12,7 @@ const fixedCategories = [
   {
     name: "Wholesale Ceramics",
     description: "Explore our complete collection of ceramic tableware for hotels, restaurants and retail.",
-    image: "/alice.webp",
+    image: "/wholesale-ceramics-supplier.webp",
     alt: "wholesale ceramic tableware collection for bulk order",
     slug: "all",
   },
