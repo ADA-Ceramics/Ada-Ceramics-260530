@@ -266,7 +266,7 @@ Details: ${formData.details}`;
                 {/* 右上 - 工厂外观 */}
                 <div className="relative h-1/2">
                   <Image 
-                    src="/factory.webp" 
+                    src="/ceramic-manufacturer.webp" 
                     alt="ADA Ceramics factory building exterior" 
                     fill
                     className="object-cover"
