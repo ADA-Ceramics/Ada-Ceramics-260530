@@ -46,7 +46,7 @@ const categoryTabs = [
 // 静态分类产品（用于展示分类卡片，跳转到二级列表页）
 const categoryProducts: Record<string, { name: string; slug: string; image: string }[]> = {
   all: [
-     { name: "Dinner Plates", slug: "dinner-plates", image: "/images/categories/dinner-plates.webp" },
+    { name: "Dinner Plates", slug: "dinner-plates", image: "/images/categories/dinner-plates.webp" },
     { name: "Dessert & Side Plates", slug: "dessert-side-plates", image: "/images/categories/side-plates.webp" },
     { name: "Soup Plates", slug: "soup-plates", image: "/images/categories/soup-plates.webp" },
     { name: "Oval & Serving Plates", slug: "oval-serving-plates", image: "/images/categories/oval-plates.webp" },
