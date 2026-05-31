@@ -50,7 +50,7 @@ const categoryProducts: Record<string, { name: string; slug: string; image: stri
     { name: "Dessert & Side Plates", slug: "dessert-side-plates", image: "/images/categories/side-plates.webp" },
     { name: "Soup Plates", slug: "soup-plates", image: "/images/categories/soup-plates.webp" },
     { name: "Oval & Serving Plates", slug: "oval-serving-plates", image: "/images/categories/oval-plates.webp" },
-    { name: "Soup Bowls", slug: "soup-bowls", image: "/images/categories/ceraimc-soup-bowl.webp" },
+    { name: "Soup Bowls", slug: "soup-bowls", image: "/images/categories/ceramic-soup-bowl.webp" },
     { name: "Salad Bowls", slug: "salad-bowls", image: "/images/categories/ceramic-salad-bowl.webp" },
     { name: "Ramen Bowls", slug: "ramen-bowls", image: "/images/categories/ceramic-ramen-bowl.webp" },
     { name: "Snack Bowls", slug: "snack-bowls", image: "/images/categories/ceramic-snack-bowl.webp" },
