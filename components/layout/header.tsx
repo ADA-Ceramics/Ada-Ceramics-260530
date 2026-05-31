@@ -354,6 +354,7 @@ export function Header() {
                     width={22}
                     height={16}
                     className="rounded object-cover"
+                    style={{ height: 'auto' }}
                     unoptimized
                   />
                   <span className="text-sm font-medium">{currentLang.name}</span>
@@ -379,6 +380,7 @@ export function Header() {
                         width={20}
                         height={14}
                         className="rounded object-cover"
+                        style={{ height: 'auto' }}
                         unoptimized
                       />
                       <span className="font-medium">{lang.name}</span>
@@ -401,6 +403,7 @@ export function Header() {
                     width={22}
                     height={16}
                     className="rounded"
+                    style={{ height: 'auto' }}
                     unoptimized
                   />
                   <span className="text-xs font-medium">{currentLang.name}</span>
@@ -424,6 +427,7 @@ export function Header() {
                         width={18}
                         height={13}
                         className="rounded"
+                        style={{ height: 'auto' }}
                         unoptimized
                       />
                       <span className="font-medium">{lang.name}</span>
