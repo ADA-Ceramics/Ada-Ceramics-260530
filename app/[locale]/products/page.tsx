@@ -46,78 +46,79 @@ const categoryTabs = [
 ]
 
 // 静态分类产品（作为后备数据，当Supabase无数据时使用）
+// SEO优化：alt文本包含长尾关键词、品牌词（China factory/supplier）、产品特性和使用场景
 const fallbackCategoryProducts: Record<string, { name: string; slug: string; image: string; alt: string }[]> = {
   all: [
-    { name: "Dinner Plates", slug: "dinner-plates", image: "/images/categories/dinner-plates.webp", alt: "Wholesale ceramic dinner plates - elegant porcelain main course plates for restaurants and hotels" },
-    { name: "Dessert & Side Plates", slug: "dessert-side-plates", image: "/images/categories/side-plates.webp", alt: "Ceramic dessert plates wholesale - small porcelain plates for appetizers and desserts" },
-    { name: "Soup Plates", slug: "soup-plates", image: "/images/categories/soup-plates.webp", alt: "Ceramic soup plates wholesale - deep rim porcelain plates for soups and pasta" },
-    { name: "Oval & Serving Plates", slug: "oval-serving-plates", image: "/images/categories/oval-plates.webp", alt: "Large ceramic serving platters - oval porcelain plates for catering and buffet displays" },
-    { name: "Soup Bowls", slug: "soup-bowls", image: "/images/categories/ceramic-soup-bowl.webp", alt: "Ceramic soup bowls wholesale - deep porcelain bowls for restaurants and foodservice" },
-    { name: "Salad Bowls", slug: "salad-bowls", image: "/images/categories/ceramic-salad-bowl.webp", alt: "Large ceramic salad bowls - stylish porcelain mixing and serving bowls for commercial use" },
-    { name: "Ramen Bowls", slug: "ramen-bowls", image: "/images/categories/ceramic-ramen-bowl.webp", alt: "Asian style ceramic ramen bowls - large porcelain noodle bowls for Japanese restaurants" },
-    { name: "Snack Bowls", slug: "snack-bowls", image: "/images/categories/ceramic-snack-bowl.webp", alt: "Small ceramic snack bowls - portion control porcelain bowls for appetizers and dips" },
-    { name: "Daily Tableware Sets", slug: "daily-tableware-sets", image: "/images/categories/ceramic-daily-tableware-set.webp", alt: "Complete ceramic dinnerware sets wholesale - matching porcelain plate and bowl collections for hotels" },
-    { name: "Restaurant & Catering Sets", slug: "restaurant-catering-sets", image: "/images/categories/ceramic-restaurant-catering-set.webp", alt: "Professional restaurant tableware sets - commercial grade porcelain collections for catering" },
-    { name: "Ceramic Mugs", slug: "ceramic-mugs", image: "/images/categories/ceramic-mug.webp", alt: "Custom ceramic coffee mugs wholesale - branded porcelain mugs for corporate gifts and cafes" },
-    { name: "Coffee Cups & Saucers", slug: "coffee-cups-saucers", image: "/images/categories/ceramic-coffee-cup-saucer.webp", alt: "Elegant ceramic coffee cups with saucers - professional porcelain sets for cafes and hotels" },
-    { name: "Water Cups", slug: "water-cups", image: "/images/categories/ceramic-water-cup.webp", alt: "Ceramic water cups wholesale - durable porcelain drinking cups for restaurants" },
-    { name: "Baking Dishes", slug: "baking-dishes", image: "/images/categories/ceramic-baking-dish.webp", alt: "Ceramic baking dishes wholesale - oven-safe porcelain casserole dishes for commercial kitchens" },
-    { name: "Ramekins", slug: "ramekins", image: "/images/categories/ceramic-ramekin.webp", alt: "Small ceramic ramekins - individual portion porcelain baking cups for restaurants" },
-    { name: "Pie & Pizza Plates", slug: "pie-pizza-plates", image: "/images/categories/ceramic-pie-pizza-plate.webp", alt: "Deep ceramic pie dishes - professional porcelain bakeware for bakeries and restaurants" },
+    { name: "Dinner Plates", slug: "dinner-plates", image: "/images/categories/dinner-plates.webp", alt: "Wholesale ceramic dinner plates from China factory - bulk porcelain main course plates 10 inch for hotels restaurants and catering services" },
+    { name: "Dessert & Side Plates", slug: "dessert-side-plates", image: "/images/categories/side-plates.webp", alt: "Ceramic dessert plates wholesale supplier - 6 inch porcelain side plates for appetizers bread and desserts bulk order from China" },
+    { name: "Soup Plates", slug: "soup-plates", image: "/images/categories/soup-plates.webp", alt: "Deep rim ceramic soup plates wholesale - porcelain pasta bowls and soup dishes for restaurant foodservice from China manufacturer" },
+    { name: "Oval & Serving Plates", slug: "oval-serving-plates", image: "/images/categories/oval-plates.webp", alt: "Large oval ceramic serving platters wholesale - porcelain fish plates and buffet serving dishes from China B2B supplier" },
+    { name: "Soup Bowls", slug: "soup-bowls", image: "/images/categories/ceramic-soup-bowl.webp", alt: "Ceramic soup bowls wholesale from China - deep porcelain bowls for restaurants hotels and commercial foodservice bulk orders" },
+    { name: "Salad Bowls", slug: "salad-bowls", image: "/images/categories/ceramic-salad-bowl.webp", alt: "Large ceramic salad bowls wholesale supplier - porcelain mixing and serving bowls for commercial kitchen from China factory" },
+    { name: "Ramen Bowls", slug: "ramen-bowls", image: "/images/categories/ceramic-ramen-bowl.webp", alt: "Asian ceramic ramen bowls wholesale - large porcelain noodle bowls for Japanese restaurants and Asian cuisine from China" },
+    { name: "Snack Bowls", slug: "snack-bowls", image: "/images/categories/ceramic-snack-bowl.webp", alt: "Small ceramic snack bowls wholesale - porcelain dip bowls and appetizer dishes for restaurants from China manufacturer" },
+    { name: "Daily Tableware Sets", slug: "daily-tableware-sets", image: "/images/categories/ceramic-daily-tableware-set.webp", alt: "Complete ceramic dinnerware sets wholesale - 16 piece porcelain plate bowl set for hotels and households from China supplier" },
+    { name: "Restaurant & Catering Sets", slug: "restaurant-catering-sets", image: "/images/categories/ceramic-restaurant-catering-set.webp", alt: "Professional restaurant tableware sets wholesale - commercial grade porcelain dinnerware collection for catering from China factory" },
+    { name: "Ceramic Mugs", slug: "ceramic-mugs", image: "/images/categories/ceramic-mug.webp", alt: "Custom ceramic coffee mugs wholesale - OEM logo printed porcelain mugs for corporate gifts promotional items from China" },
+    { name: "Coffee Cups & Saucers", slug: "coffee-cups-saucers", image: "/images/categories/ceramic-coffee-cup-saucer.webp", alt: "Elegant ceramic coffee cups with saucers wholesale - espresso cappuccino cup sets for cafes hotels from China manufacturer" },
+    { name: "Water Cups", slug: "water-cups", image: "/images/categories/ceramic-water-cup.webp", alt: "Ceramic water cups wholesale supplier - stackable porcelain drinking cups for restaurants and hotels bulk order from China" },
+    { name: "Baking Dishes", slug: "baking-dishes", image: "/images/categories/ceramic-baking-dish.webp", alt: "Ceramic baking dishes wholesale - oven safe porcelain casserole dishes lasagna pans for commercial kitchens from China factory" },
+    { name: "Ramekins", slug: "ramekins", image: "/images/categories/ceramic-ramekin.webp", alt: "Small ceramic ramekins wholesale - porcelain souffle cups creme brulee dishes for restaurants bakeries from China supplier" },
+    { name: "Pie & Pizza Plates", slug: "pie-pizza-plates", image: "/images/categories/ceramic-pie-pizza-plate.webp", alt: "Ceramic pie and pizza plates wholesale - deep dish baking plates for pizzerias bakeries and restaurants from China manufacturer" },
   ],
   plates: [
-    { name: "Dinner Plates", slug: "dinner-plates", image: "/images/categories/dinner-plates.webp", alt: "Wholesale ceramic dinner plates - elegant porcelain main course plates for restaurants and hotels" },
-    { name: "Dessert & Side Plates", slug: "dessert-side-plates", image: "/images/categories/side-plates.webp", alt: "Ceramic dessert plates wholesale - small porcelain plates for appetizers and desserts" },
-    { name: "Soup Plates", slug: "soup-plates", image: "/images/categories/soup-plates.webp", alt: "Ceramic soup plates wholesale - deep rim porcelain plates for soups and pasta" },
-    { name: "Oval & Serving Plates", slug: "oval-serving-plates", image: "/images/categories/oval-plates.webp", alt: "Large ceramic serving platters - oval porcelain plates for catering and buffet displays" },
+    { name: "Dinner Plates", slug: "dinner-plates", image: "/images/categories/dinner-plates.webp", alt: "Wholesale ceramic dinner plates from China factory - bulk porcelain main course plates 10 inch for hotels restaurants and catering services" },
+    { name: "Dessert & Side Plates", slug: "dessert-side-plates", image: "/images/categories/side-plates.webp", alt: "Ceramic dessert plates wholesale supplier - 6 inch porcelain side plates for appetizers bread and desserts bulk order from China" },
+    { name: "Soup Plates", slug: "soup-plates", image: "/images/categories/soup-plates.webp", alt: "Deep rim ceramic soup plates wholesale - porcelain pasta bowls and soup dishes for restaurant foodservice from China manufacturer" },
+    { name: "Oval & Serving Plates", slug: "oval-serving-plates", image: "/images/categories/oval-plates.webp", alt: "Large oval ceramic serving platters wholesale - porcelain fish plates and buffet serving dishes from China B2B supplier" },
   ],
   bowls: [
-    { name: "Soup Bowls", slug: "soup-bowls", image: "/images/categories/ceramic-soup-bowl.webp", alt: "Ceramic soup bowls wholesale - deep porcelain bowls for restaurants and foodservice" },
-    { name: "Salad Bowls", slug: "salad-bowls", image: "/images/categories/ceramic-salad-bowl.webp", alt: "Large ceramic salad bowls - stylish porcelain mixing and serving bowls for commercial use" },
-    { name: "Ramen Bowls", slug: "ramen-bowls", image: "/images/categories/ceramic-ramen-bowl.webp", alt: "Asian style ceramic ramen bowls - large porcelain noodle bowls for Japanese restaurants" },
-    { name: "Snack Bowls", slug: "snack-bowls", image: "/images/categories/ceramic-snack-bowl.webp", alt: "Small ceramic snack bowls - portion control porcelain bowls for appetizers and dips" },
+    { name: "Soup Bowls", slug: "soup-bowls", image: "/images/categories/ceramic-soup-bowl.webp", alt: "Ceramic soup bowls wholesale from China - deep porcelain bowls for restaurants hotels and commercial foodservice bulk orders" },
+    { name: "Salad Bowls", slug: "salad-bowls", image: "/images/categories/ceramic-salad-bowl.webp", alt: "Large ceramic salad bowls wholesale supplier - porcelain mixing and serving bowls for commercial kitchen from China factory" },
+    { name: "Ramen Bowls", slug: "ramen-bowls", image: "/images/categories/ceramic-ramen-bowl.webp", alt: "Asian ceramic ramen bowls wholesale - large porcelain noodle bowls for Japanese restaurants and Asian cuisine from China" },
+    { name: "Snack Bowls", slug: "snack-bowls", image: "/images/categories/ceramic-snack-bowl.webp", alt: "Small ceramic snack bowls wholesale - porcelain dip bowls and appetizer dishes for restaurants from China manufacturer" },
   ],
   sets: [
-    { name: "Daily Tableware Sets", slug: "daily-tableware-sets", image: "/images/categories/ceramic-daily-tableware-set.webp", alt: "Complete ceramic dinnerware sets wholesale - matching porcelain plate and bowl collections for hotels" },
-    { name: "Restaurant & Catering Sets", slug: "restaurant-catering-sets", image: "/images/categories/ceramic-restaurant-catering-set.webp", alt: "Professional restaurant tableware sets - commercial grade porcelain collections for catering" },
+    { name: "Daily Tableware Sets", slug: "daily-tableware-sets", image: "/images/categories/ceramic-daily-tableware-set.webp", alt: "Complete ceramic dinnerware sets wholesale - 16 piece porcelain plate bowl set for hotels and households from China supplier" },
+    { name: "Restaurant & Catering Sets", slug: "restaurant-catering-sets", image: "/images/categories/ceramic-restaurant-catering-set.webp", alt: "Professional restaurant tableware sets wholesale - commercial grade porcelain dinnerware collection for catering from China factory" },
   ],
   cups: [
-    { name: "Ceramic Mugs", slug: "ceramic-mugs", image: "/images/categories/ceramic-mug.webp", alt: "Custom ceramic coffee mugs wholesale - branded porcelain mugs for corporate gifts and cafes" },
-    { name: "Coffee Cups & Saucers", slug: "coffee-cups-saucers", image: "/images/categories/ceramic-coffee-cup-saucer.webp", alt: "Elegant ceramic coffee cups with saucers - professional porcelain sets for cafes and hotels" },
-    { name: "Water Cups", slug: "water-cups", image: "/images/categories/ceramic-water-cup.webp", alt: "Ceramic water cups wholesale - durable porcelain drinking cups for restaurants" },
+    { name: "Ceramic Mugs", slug: "ceramic-mugs", image: "/images/categories/ceramic-mug.webp", alt: "Custom ceramic coffee mugs wholesale - OEM logo printed porcelain mugs for corporate gifts promotional items from China" },
+    { name: "Coffee Cups & Saucers", slug: "coffee-cups-saucers", image: "/images/categories/ceramic-coffee-cup-saucer.webp", alt: "Elegant ceramic coffee cups with saucers wholesale - espresso cappuccino cup sets for cafes hotels from China manufacturer" },
+    { name: "Water Cups", slug: "water-cups", image: "/images/categories/ceramic-water-cup.webp", alt: "Ceramic water cups wholesale supplier - stackable porcelain drinking cups for restaurants and hotels bulk order from China" },
   ],
   bakeware: [
-    { name: "Baking Dishes", slug: "baking-dishes", image: "/images/categories/ceramic-baking-dish.webp", alt: "Ceramic baking dishes wholesale - oven-safe porcelain casserole dishes for commercial kitchens" },
-    { name: "Ramekins", slug: "ramekins", image: "/images/categories/ceramic-ramekin.webp", alt: "Small ceramic ramekins - individual portion porcelain baking cups for restaurants" },
-    { name: "Pie & Pizza Plates", slug: "pie-pizza-plates", image: "/images/categories/ceramic-pie-pizza-plate.webp", alt: "Deep ceramic pie dishes - professional porcelain bakeware for bakeries and restaurants" },
+    { name: "Baking Dishes", slug: "baking-dishes", image: "/images/categories/ceramic-baking-dish.webp", alt: "Ceramic baking dishes wholesale - oven safe porcelain casserole dishes lasagna pans for commercial kitchens from China factory" },
+    { name: "Ramekins", slug: "ramekins", image: "/images/categories/ceramic-ramekin.webp", alt: "Small ceramic ramekins wholesale - porcelain souffle cups creme brulee dishes for restaurants bakeries from China supplier" },
+    { name: "Pie & Pizza Plates", slug: "pie-pizza-plates", image: "/images/categories/ceramic-pie-pizza-plate.webp", alt: "Ceramic pie and pizza plates wholesale - deep dish baking plates for pizzerias bakeries and restaurants from China manufacturer" },
   ],
 }
 
-// Business solutions
+// Business solutions - SEO优化：alt文本包含业务场景、目标客户和产品特性
 const businessSolutions = [
   { 
     title: "Hotel & Restaurant Bulk Supplies", 
     href: "/en/products", 
     image: "/porcelain-tableware-for-hotel-restore.webp",
-    alt: "Wholesale porcelain tableware for hotels and restaurants - white ceramic plates, bowls and dinnerware sets for commercial foodservice"
+    alt: "Wholesale porcelain tableware for hotels and restaurants from China - bulk white ceramic plates bowls dinnerware sets for commercial foodservice B2B supplier"
   },
   { 
     title: "Amazon & Retail Packaging", 
     href: "/en/products", 
     image: "/amazon-hotsell-ceramic.webp",
-    alt: "Best-selling ceramic tableware for Amazon and retail stores - popular stoneware plates and bowls with retail-ready packaging"
+    alt: "Best-selling ceramic tableware for Amazon FBA and retail stores - trending stoneware plates bowls with retail-ready gift box packaging from China factory"
   },
   { 
     title: "Wedding & Event Catering", 
     href: "/en/products", 
     image: "/ceramic-plates-for-catering-service.webp",
-    alt: "Elegant ceramic plates for wedding catering and event services - bulk dinnerware sets for banquets and special occasions"
+    alt: "Elegant ceramic plates for wedding catering and event services - bulk porcelain dinnerware rental sets for banquets parties from China wholesale supplier"
   },
   { 
     title: "Custom Corporate Gifting", 
     href: "/en/custom-oem-odm", 
     image: "/ceramic-gift-mug.webp",
-    alt: "Custom printed ceramic gift mugs for corporate branding - personalized promotional drinkware with logo printing"
+    alt: "Custom printed ceramic gift mugs for corporate branding OEM ODM - personalized promotional drinkware with company logo from China manufacturer"
   },
 ]
 
@@ -272,7 +273,7 @@ export default async function ProductsPage({ params }: PageProps) {
               <div className="aspect-[4/3] relative bg-[#e5e1db] rounded-xl overflow-hidden">
                 <Image
                   src="/wholesale-ceramics-supplier.webp"
-                  alt="Wholesale ceramic tableware supplier - full range of plates, bowls, mugs and bakeware from China factory with 3D design and prototyping services"
+                  alt="China wholesale ceramic tableware supplier - complete product range including porcelain plates bowls mugs bakeware with professional 3D design prototyping and R&D services for B2B buyers"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -291,7 +292,7 @@ export default async function ProductsPage({ params }: PageProps) {
               <div className="aspect-[4/3] relative bg-[#e5e1db] rounded-xl overflow-hidden">
                 <Image
                   src="/color-glaze.webp"
-                  alt="Ceramic decoration techniques - underglaze color, in-glaze color, overglaze decal, digital inkjet printing and pad printing on porcelain tableware"
+                  alt="Ceramic decoration techniques from China manufacturer - underglaze color in-glaze overglaze decal transfer digital inkjet printing pad printing on porcelain stoneware tableware"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -310,7 +311,7 @@ export default async function ProductsPage({ params }: PageProps) {
               <div className="aspect-[4/3] relative bg-[#e5e1db] rounded-xl overflow-hidden">
                 <Image
                   src="/factory-building.webp"
-                  alt="Ceramic tableware factory in China - OEM ODM manufacturing facility for custom dinnerware production with quality control and door-to-door delivery"
+                  alt="China ceramic tableware factory OEM ODM manufacturer - custom dinnerware production facility with quality control MOQ flexibility small trial orders bulk orders door-to-door shipping worldwide"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
