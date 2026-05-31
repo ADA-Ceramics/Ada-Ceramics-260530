@@ -24,9 +24,11 @@ export function ProductsClient({ products, activeCat }: ProductsClientProps) {
 
   const fixedCategories = [
     { slug: "all", name: "All Products" },
-    { slug: "high-temperature-white-porcelain", name: "High Temp White Porcelain" },
-    { slug: "color-glaze", name: "Color Glaze" },
-    { slug: "kiln-change-ceramic", name: "Kiln Change Ceramic" },
+    { slug: "wholesale-plates", name: "Wholesale Plates" },
+    { slug: "wholesale-bowls", name: "Wholesale Bowls" },
+    { slug: "wholesale-dinnerware-sets", name: "Wholesale Dinnerware Sets" },
+    { slug: "wholesale-cups-mugs", name: "Wholesale Cups & Mugs" },
+    { slug: "wholesale-bakeware", name: "Wholesale Bakeware" },
   ];
 
   return (
@@ -71,7 +73,7 @@ export function ProductsClient({ products, activeCat }: ProductsClientProps) {
               ) : (
                 products.map((product) => {
                   // 处理category_slug为空的情况，使用默认分类
-                  const categorySlug = product.category_slug || 'high-temperature-white-porcelain'
+                  const categorySlug = product.category_slug || 'wholesale-plates'
                   return (
                   <Link
                     key={product.id}
