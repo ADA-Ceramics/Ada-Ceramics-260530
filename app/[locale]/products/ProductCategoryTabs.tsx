@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from 'next/image'
 import { Package } from "lucide-react"
 
 interface CategoryTab {
@@ -84,9 +85,12 @@ export function ProductCategoryTabs({ locale, categoryTabs, categoryProducts }: 
               className="group border border-[#e5e7eb] rounded-lg overflow-hidden bg-white hover:shadow-lg transition-all"
             >
               <div className="aspect-square relative bg-[#f9fafb]">
-                <div className="absolute inset-0 flex items-center justify-center text-[#9ca3af]">
-                  <Package className="w-16 h-16 opacity-30" />
-                </div>
+                <Image
+  src={product.image}
+  alt={product.name}
+  fill
+  className="object-cover"
+/>
               </div>
               <div className="p-5">
                 <h3 className="text-base font-medium text-[#1a1a1a] mb-4">
