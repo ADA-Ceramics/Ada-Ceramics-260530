@@ -93,10 +93,10 @@ const categoryProducts: Record<string, { name: string; slug: string; image: stri
 
 // Business solutions
 const businessSolutions = [
-  { title: "Hotel & Restaurant Bulk Supplies", href: "/en/products", image: "/images/solutions/hotel-restaurant.jpg" },
-  { title: "Amazon & Retail Packaging", href: "/en/products", image: "/images/solutions/amazon-retail.jpg" },
-  { title: "Wedding & Event Catering", href: "/en/products", image: "/images/solutions/wedding-event.jpg" },
-  { title: "Custom Corporate Gifting", href: "/en/custom-oem-odm", image: "/images/solutions/corporate-gifting.jpg" },
+  { title: "Hotel & Restaurant Bulk Supplies", href: "/en/products", image: "/images/categories/hotel-restaurant-bulk-supplies.webp" },
+  { title: "Amazon & Retail Packaging", href: "/en/products", image: "/images/categories/amazon-retail-packing.webp" },
+  { title: "Wedding & Event Catering", href: "/en/products", image: "/images/categories/wedding-event-catering.webp" },
+  { title: "Custom Corporate Gifting", href: "/en/custom-oem-odm", image: "/images/categories/custom-corperate-gift.webp" },
 ]
 
 // Why choose us
