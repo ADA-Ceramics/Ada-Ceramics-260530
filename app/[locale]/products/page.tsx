@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import { ChevronRight, Package, Layers, Gift, Settings, Zap, Clock, Award, Truck } from "lucide-react"
 import { getAllProducts } from "@/lib/supabase/products"
@@ -93,10 +94,10 @@ const categoryProducts: Record<string, { name: string; slug: string; image: stri
 
 // Business solutions
 const businessSolutions = [
-  { title: "Hotel & Restaurant Bulk Supplies", href: "/en/products", image: "/images/categories/hotel-restaurant-bulk-supplies.webp" },
-  { title: "Amazon & Retail Packaging", href: "/en/products", image: "/images/categories/amazon-retail-packing.webp" },
-  { title: "Wedding & Event Catering", href: "/en/products", image: "/images/categories/wedding-event-catering.webp" },
-  { title: "Custom Corporate Gifting", href: "/en/custom-oem-odm", image: "/images/categories/custom-corperate-gift.webp" },
+  { title: "Hotel & Restaurant Bulk Supplies", href: "/en/products", image: "/porcelain-tableware-for-hotel-restore.webp" },
+  { title: "Amazon & Retail Packaging", href: "/en/products", image: "/amazon-hotsell-ceramic.webp" },
+  { title: "Wedding & Event Catering", href: "/en/products", image: "/ceramic-plates-for-catering-service.webp" },
+  { title: "Custom Corporate Gifting", href: "/en/custom-oem-odm", image: "/ceramic-gift-mug.webp" },
 ]
 
 // Why choose us
@@ -213,9 +214,13 @@ export default async function ProductsPage({ params }: PageProps) {
                 className="group border border-[#e5e7eb] rounded-lg overflow-hidden bg-white hover:shadow-lg transition-all"
               >
                 <div className="aspect-[4/3] relative bg-[#f5f3ef]">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Package className="w-16 h-16 text-[#8b7355] opacity-30" />
-                  </div>
+                  <Image
+                    src={solution.image}
+                    alt={solution.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
                 </div>
                 <div className="p-5">
                   <h3 className="text-base font-medium text-[#1a1a1a] group-hover:text-[#8b7355] transition-colors">
