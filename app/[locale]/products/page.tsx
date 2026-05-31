@@ -242,8 +242,14 @@ export default async function ProductsPage({ params }: PageProps) {
 
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-16">
             <div className="w-full md:w-1/2">
-              <div className="aspect-[4/3] bg-[#e5e1db] rounded-xl flex items-center justify-center">
-                <Package className="w-20 h-20 text-[#8b7355] opacity-30" />
+              <div className="aspect-[4/3] relative bg-[#e5e1db] rounded-xl overflow-hidden">
+                <Image
+                  src="/wholesale-ceramics-supplier.webp"
+                  alt="Full range ceramic tableware sourcing"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               </div>
             </div>
             <div className="w-full md:w-1/2">
@@ -255,8 +261,14 @@ export default async function ProductsPage({ params }: PageProps) {
 
           <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 mb-16">
             <div className="w-full md:w-1/2">
-              <div className="aspect-[4/3] bg-[#e5e1db] rounded-xl flex items-center justify-center">
-                <Package className="w-20 h-20 text-[#8b7355] opacity-30" />
+              <div className="aspect-[4/3] relative bg-[#e5e1db] rounded-xl overflow-hidden">
+                <Image
+                  src="/color-glaze.webp"
+                  alt="Ceramic decoration technologies"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               </div>
             </div>
             <div className="w-full md:w-1/2">
@@ -268,8 +280,14 @@ export default async function ProductsPage({ params }: PageProps) {
 
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <div className="w-full md:w-1/2">
-              <div className="aspect-[4/3] bg-[#e5e1db] rounded-xl flex items-center justify-center">
-                <Package className="w-20 h-20 text-[#8b7355] opacity-30" />
+              <div className="aspect-[4/3] relative bg-[#e5e1db] rounded-xl overflow-hidden">
+                <Image
+                  src="/factory-building.webp"
+                  alt="Factory production and customization"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               </div>
             </div>
             <div className="w-full md:w-1/2">
