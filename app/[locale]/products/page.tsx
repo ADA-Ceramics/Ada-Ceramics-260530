@@ -94,10 +94,30 @@ const categoryProducts: Record<string, { name: string; slug: string; image: stri
 
 // Business solutions
 const businessSolutions = [
-  { title: "Hotel & Restaurant Bulk Supplies", href: "/en/products", image: "/porcelain-tableware-for-hotel-restore.webp" },
-  { title: "Amazon & Retail Packaging", href: "/en/products", image: "/amazon-hotsell-ceramic.webp" },
-  { title: "Wedding & Event Catering", href: "/en/products", image: "/ceramic-plates-for-catering-service.webp" },
-  { title: "Custom Corporate Gifting", href: "/en/custom-oem-odm", image: "/ceramic-gift-mug.webp" },
+  { 
+    title: "Hotel & Restaurant Bulk Supplies", 
+    href: "/en/products", 
+    image: "/porcelain-tableware-for-hotel-restore.webp",
+    alt: "Wholesale porcelain tableware for hotels and restaurants - white ceramic plates, bowls and dinnerware sets for commercial foodservice"
+  },
+  { 
+    title: "Amazon & Retail Packaging", 
+    href: "/en/products", 
+    image: "/amazon-hotsell-ceramic.webp",
+    alt: "Best-selling ceramic tableware for Amazon and retail stores - popular stoneware plates and bowls with retail-ready packaging"
+  },
+  { 
+    title: "Wedding & Event Catering", 
+    href: "/en/products", 
+    image: "/ceramic-plates-for-catering-service.webp",
+    alt: "Elegant ceramic plates for wedding catering and event services - bulk dinnerware sets for banquets and special occasions"
+  },
+  { 
+    title: "Custom Corporate Gifting", 
+    href: "/en/custom-oem-odm", 
+    image: "/ceramic-gift-mug.webp",
+    alt: "Custom printed ceramic gift mugs for corporate branding - personalized promotional drinkware with logo printing"
+  },
 ]
 
 // Why choose us
@@ -216,7 +236,7 @@ export default async function ProductsPage({ params }: PageProps) {
                 <div className="aspect-[4/3] relative bg-[#f5f3ef]">
                   <Image
                     src={solution.image}
-                    alt={solution.title}
+                    alt={solution.alt}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -245,7 +265,7 @@ export default async function ProductsPage({ params }: PageProps) {
               <div className="aspect-[4/3] relative bg-[#e5e1db] rounded-xl overflow-hidden">
                 <Image
                   src="/wholesale-ceramics-supplier.webp"
-                  alt="Full range ceramic tableware sourcing"
+                  alt="Wholesale ceramic tableware supplier - full range of plates, bowls, mugs and bakeware from China factory with 3D design and prototyping services"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -264,7 +284,7 @@ export default async function ProductsPage({ params }: PageProps) {
               <div className="aspect-[4/3] relative bg-[#e5e1db] rounded-xl overflow-hidden">
                 <Image
                   src="/color-glaze.webp"
-                  alt="Ceramic decoration technologies"
+                  alt="Ceramic decoration techniques - underglaze color, in-glaze color, overglaze decal, digital inkjet printing and pad printing on porcelain tableware"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -283,7 +303,7 @@ export default async function ProductsPage({ params }: PageProps) {
               <div className="aspect-[4/3] relative bg-[#e5e1db] rounded-xl overflow-hidden">
                 <Image
                   src="/factory-building.webp"
-                  alt="Factory production and customization"
+                  alt="Ceramic tableware factory in China - OEM ODM manufacturing facility for custom dinnerware production with quality control and door-to-door delivery"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
