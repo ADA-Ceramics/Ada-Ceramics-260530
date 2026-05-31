@@ -325,12 +325,11 @@ export default async function SubcategoryPage({ params }: PageProps) {
                     </div>
 
                     <div className="p-5">
-                      <p className="text-xs text-[#9ca3af] mb-1">SKU: {product.id}</p>
                       <h3 className="text-base font-medium text-[#1a1a1a] mb-4 group-hover:text-[#8b7355] transition-colors">
                         {product.name}
                       </h3>
                       <span className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-[#8b7355] rounded-md group-hover:bg-[#6d5a43] transition-colors">
-                        View Details
+                        View More
                       </span>
                     </div>
                   </Link>
