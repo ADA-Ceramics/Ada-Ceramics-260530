@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import Script from 'next/script'
 import { Header } from '@/components/layout/header'
 import '../globals.css'
 
@@ -73,19 +74,6 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={`${inter.variable} bg-background`} suppressHydrationWarning>
       <head>
-        {/* Google Analytics (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-9EC22P07Z6"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-9EC22P07Z6');
-            `,
-          }}
-        />
-
         {/* 隐藏Google翻译默认UI但保留功能 */}
         <style dangerouslySetInnerHTML={{ __html: `
           /* 隐藏Google翻译顶部横幅 */
@@ -157,6 +145,19 @@ export default async function RootLayout({
         `}} />
       </head>
       <body className="font-sans antialiased">
+        {/* Google Analytics (gtag.js) - 使用 next/script 避免 hydration 错误 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-9EC22P07Z6"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-9EC22P07Z6');
+          `}
+        </Script>
         <Header />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
