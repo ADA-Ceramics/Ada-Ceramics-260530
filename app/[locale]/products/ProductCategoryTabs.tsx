@@ -14,6 +14,7 @@ interface CategoryProduct {
   name: string
   slug: string
   image: string
+  alt?: string
 }
 
 interface ProductCategoryTabsProps {
@@ -86,11 +87,12 @@ export function ProductCategoryTabs({ locale, categoryTabs, categoryProducts }: 
             >
               <div className="aspect-square relative bg-[#f9fafb]">
                 <Image
-  src={product.image}
-  alt={product.name}
-  fill
-  className="object-cover"
-/>
+                  src={product.image}
+                  alt={product.alt || `${product.name} - wholesale ceramic tableware from China factory`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
               </div>
               <div className="p-5">
                 <h3 className="text-base font-medium text-[#1a1a1a] mb-4">

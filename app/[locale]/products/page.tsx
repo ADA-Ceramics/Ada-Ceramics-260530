@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ChevronRight, Package, Layers, Gift, Settings, Zap, Clock, Award, Truck } from "lucide-react"
 import { getAllProducts } from "@/lib/supabase/products"
+import { getCategoryCardsGrouped } from "@/lib/supabase/category-cards"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { QuoteForm } from "@/components/shared/quote-form"
@@ -44,51 +45,51 @@ const categoryTabs = [
   { id: "bakeware", name: "Wholesale Bakeware" },
 ]
 
-// 静态分类产品（用于展示分类卡片，跳转到二级列表页）
-const categoryProducts: Record<string, { name: string; slug: string; image: string }[]> = {
+// 静态分类产品（作为后备数据，当Supabase无数据时使用）
+const fallbackCategoryProducts: Record<string, { name: string; slug: string; image: string; alt: string }[]> = {
   all: [
-    { name: "Dinner Plates", slug: "dinner-plates", image: "/images/categories/dinner-plates.webp" },
-    { name: "Dessert & Side Plates", slug: "dessert-side-plates", image: "/images/categories/side-plates.webp" },
-    { name: "Soup Plates", slug: "soup-plates", image: "/images/categories/soup-plates.webp" },
-    { name: "Oval & Serving Plates", slug: "oval-serving-plates", image: "/images/categories/oval-plates.webp" },
-    { name: "Soup Bowls", slug: "soup-bowls", image: "/images/categories/ceramic-soup-bowl.webp" },
-    { name: "Salad Bowls", slug: "salad-bowls", image: "/images/categories/ceramic-salad-bowl.webp" },
-    { name: "Ramen Bowls", slug: "ramen-bowls", image: "/images/categories/ceramic-ramen-bowl.webp" },
-    { name: "Snack Bowls", slug: "snack-bowls", image: "/images/categories/ceramic-snack-bowl.webp" },
-    { name: "Daily Tableware Sets", slug: "daily-tableware-sets", image: "/images/categories/ceramic-daily-tableware-set.webp" },
-    { name: "Restaurant & Catering Sets", slug: "restaurant-catering-sets", image: "/images/categories/ceramic-restaurant-catering-set.webp" },
-    { name: "Ceramic Mugs", slug: "ceramic-mugs", image: "/images/categories/ceramic-mug.webp" },
-    { name: "Coffee Cups & Saucers", slug: "coffee-cups-saucers", image: "/images/categories/ceramic-coffee-cup-saucer.webp" },
-    { name: "Water Cups", slug: "water-cups", image: "/images/categories/ceramic-water-cup.webp" },
-    { name: "Baking Dishes", slug: "baking-dishes", image: "/images/categories/ceramic-baking-dish.webp" },
-    { name: "Ramekins", slug: "ramekins", image: "/images/categories/ceramic-ramekin.webp" },
-    { name: "Pie & Pizza Plates", slug: "pie-pizza-plates", image: "/images/categories/ceramic-pie-pizza-plate.webp" },
+    { name: "Dinner Plates", slug: "dinner-plates", image: "/images/categories/dinner-plates.webp", alt: "Wholesale ceramic dinner plates - elegant porcelain main course plates for restaurants and hotels" },
+    { name: "Dessert & Side Plates", slug: "dessert-side-plates", image: "/images/categories/side-plates.webp", alt: "Ceramic dessert plates wholesale - small porcelain plates for appetizers and desserts" },
+    { name: "Soup Plates", slug: "soup-plates", image: "/images/categories/soup-plates.webp", alt: "Ceramic soup plates wholesale - deep rim porcelain plates for soups and pasta" },
+    { name: "Oval & Serving Plates", slug: "oval-serving-plates", image: "/images/categories/oval-plates.webp", alt: "Large ceramic serving platters - oval porcelain plates for catering and buffet displays" },
+    { name: "Soup Bowls", slug: "soup-bowls", image: "/images/categories/ceramic-soup-bowl.webp", alt: "Ceramic soup bowls wholesale - deep porcelain bowls for restaurants and foodservice" },
+    { name: "Salad Bowls", slug: "salad-bowls", image: "/images/categories/ceramic-salad-bowl.webp", alt: "Large ceramic salad bowls - stylish porcelain mixing and serving bowls for commercial use" },
+    { name: "Ramen Bowls", slug: "ramen-bowls", image: "/images/categories/ceramic-ramen-bowl.webp", alt: "Asian style ceramic ramen bowls - large porcelain noodle bowls for Japanese restaurants" },
+    { name: "Snack Bowls", slug: "snack-bowls", image: "/images/categories/ceramic-snack-bowl.webp", alt: "Small ceramic snack bowls - portion control porcelain bowls for appetizers and dips" },
+    { name: "Daily Tableware Sets", slug: "daily-tableware-sets", image: "/images/categories/ceramic-daily-tableware-set.webp", alt: "Complete ceramic dinnerware sets wholesale - matching porcelain plate and bowl collections for hotels" },
+    { name: "Restaurant & Catering Sets", slug: "restaurant-catering-sets", image: "/images/categories/ceramic-restaurant-catering-set.webp", alt: "Professional restaurant tableware sets - commercial grade porcelain collections for catering" },
+    { name: "Ceramic Mugs", slug: "ceramic-mugs", image: "/images/categories/ceramic-mug.webp", alt: "Custom ceramic coffee mugs wholesale - branded porcelain mugs for corporate gifts and cafes" },
+    { name: "Coffee Cups & Saucers", slug: "coffee-cups-saucers", image: "/images/categories/ceramic-coffee-cup-saucer.webp", alt: "Elegant ceramic coffee cups with saucers - professional porcelain sets for cafes and hotels" },
+    { name: "Water Cups", slug: "water-cups", image: "/images/categories/ceramic-water-cup.webp", alt: "Ceramic water cups wholesale - durable porcelain drinking cups for restaurants" },
+    { name: "Baking Dishes", slug: "baking-dishes", image: "/images/categories/ceramic-baking-dish.webp", alt: "Ceramic baking dishes wholesale - oven-safe porcelain casserole dishes for commercial kitchens" },
+    { name: "Ramekins", slug: "ramekins", image: "/images/categories/ceramic-ramekin.webp", alt: "Small ceramic ramekins - individual portion porcelain baking cups for restaurants" },
+    { name: "Pie & Pizza Plates", slug: "pie-pizza-plates", image: "/images/categories/ceramic-pie-pizza-plate.webp", alt: "Deep ceramic pie dishes - professional porcelain bakeware for bakeries and restaurants" },
   ],
   plates: [
-    { name: "Dinner Plates", slug: "dinner-plates", image: "/images/categories/dinner-plates.webp" },
-    { name: "Dessert & Side Plates", slug: "dessert-side-plates", image: "/images/categories/side-plates.webp" },
-    { name: "Soup Plates", slug: "soup-plates", image: "/images/categories/soup-plates.webp" },
-    { name: "Oval & Serving Plates", slug: "oval-serving-plates", image: "/images/categories/oval-plates.webp" },
+    { name: "Dinner Plates", slug: "dinner-plates", image: "/images/categories/dinner-plates.webp", alt: "Wholesale ceramic dinner plates - elegant porcelain main course plates for restaurants and hotels" },
+    { name: "Dessert & Side Plates", slug: "dessert-side-plates", image: "/images/categories/side-plates.webp", alt: "Ceramic dessert plates wholesale - small porcelain plates for appetizers and desserts" },
+    { name: "Soup Plates", slug: "soup-plates", image: "/images/categories/soup-plates.webp", alt: "Ceramic soup plates wholesale - deep rim porcelain plates for soups and pasta" },
+    { name: "Oval & Serving Plates", slug: "oval-serving-plates", image: "/images/categories/oval-plates.webp", alt: "Large ceramic serving platters - oval porcelain plates for catering and buffet displays" },
   ],
   bowls: [
-    { name: "Soup Bowls", slug: "soup-bowls", image: "/images/categories/ceramic-soup-bowl.webp" },
-    { name: "Salad Bowls", slug: "salad-bowls", image: "/images/categories/ceramic-salad-bowl.webp" },
-    { name: "Ramen Bowls", slug: "ramen-bowls", image: "/images/categories/ceramic-ramen-bowl.webp" },
-    { name: "Snack Bowls", slug: "snack-bowls", image: "/images/categories/ceramic-snack-bowl.webp" },
+    { name: "Soup Bowls", slug: "soup-bowls", image: "/images/categories/ceramic-soup-bowl.webp", alt: "Ceramic soup bowls wholesale - deep porcelain bowls for restaurants and foodservice" },
+    { name: "Salad Bowls", slug: "salad-bowls", image: "/images/categories/ceramic-salad-bowl.webp", alt: "Large ceramic salad bowls - stylish porcelain mixing and serving bowls for commercial use" },
+    { name: "Ramen Bowls", slug: "ramen-bowls", image: "/images/categories/ceramic-ramen-bowl.webp", alt: "Asian style ceramic ramen bowls - large porcelain noodle bowls for Japanese restaurants" },
+    { name: "Snack Bowls", slug: "snack-bowls", image: "/images/categories/ceramic-snack-bowl.webp", alt: "Small ceramic snack bowls - portion control porcelain bowls for appetizers and dips" },
   ],
   sets: [
-    { name: "Daily Tableware Sets", slug: "daily-tableware-sets", image: "/images/categories/ceramic-daily-tableware-set.webp" },
-    { name: "Restaurant & Catering Sets", slug: "restaurant-catering-sets", image: "/images/categories/ceramic-restaurant-catering-set.webp" },
+    { name: "Daily Tableware Sets", slug: "daily-tableware-sets", image: "/images/categories/ceramic-daily-tableware-set.webp", alt: "Complete ceramic dinnerware sets wholesale - matching porcelain plate and bowl collections for hotels" },
+    { name: "Restaurant & Catering Sets", slug: "restaurant-catering-sets", image: "/images/categories/ceramic-restaurant-catering-set.webp", alt: "Professional restaurant tableware sets - commercial grade porcelain collections for catering" },
   ],
   cups: [
-    { name: "Ceramic Mugs", slug: "ceramic-mugs", image: "/images/categories/ceramic-mug.webp" },
-    { name: "Coffee Cups & Saucers", slug: "coffee-cups-saucers", image: "/images/categories/ceramic-coffee-cup-saucer.webp" },
-    { name: "Water Cups", slug: "water-cups", image: "/images/categories/ceramic-water-cup.webp" },
+    { name: "Ceramic Mugs", slug: "ceramic-mugs", image: "/images/categories/ceramic-mug.webp", alt: "Custom ceramic coffee mugs wholesale - branded porcelain mugs for corporate gifts and cafes" },
+    { name: "Coffee Cups & Saucers", slug: "coffee-cups-saucers", image: "/images/categories/ceramic-coffee-cup-saucer.webp", alt: "Elegant ceramic coffee cups with saucers - professional porcelain sets for cafes and hotels" },
+    { name: "Water Cups", slug: "water-cups", image: "/images/categories/ceramic-water-cup.webp", alt: "Ceramic water cups wholesale - durable porcelain drinking cups for restaurants" },
   ],
   bakeware: [
-    { name: "Baking Dishes", slug: "baking-dishes", image: "/images/categories/ceramic-baking-dish.webp" },
-    { name: "Ramekins", slug: "ramekins", image: "/images/categories/ceramic-ramekin.webp" },
-    { name: "Pie & Pizza Plates", slug: "pie-pizza-plates", image: "/images/categories/ceramic-pie-pizza-plate.webp" },
+    { name: "Baking Dishes", slug: "baking-dishes", image: "/images/categories/ceramic-baking-dish.webp", alt: "Ceramic baking dishes wholesale - oven-safe porcelain casserole dishes for commercial kitchens" },
+    { name: "Ramekins", slug: "ramekins", image: "/images/categories/ceramic-ramekin.webp", alt: "Small ceramic ramekins - individual portion porcelain baking cups for restaurants" },
+    { name: "Pie & Pizza Plates", slug: "pie-pizza-plates", image: "/images/categories/ceramic-pie-pizza-plate.webp", alt: "Deep ceramic pie dishes - professional porcelain bakeware for bakeries and restaurants" },
   ],
 }
 
@@ -169,6 +170,12 @@ export default async function ProductsPage({ params }: PageProps) {
 
   // 获取所有产品（用于统计，未来可展示真实数据）
   const products = await getAllProducts()
+  
+  // 从 Supabase 获取分类卡片数据，如果没有数据则使用后备静态数据
+  const supabaseCategoryCards = await getCategoryCardsGrouped()
+  const categoryProducts = supabaseCategoryCards.all.length > 0 
+    ? supabaseCategoryCards 
+    : fallbackCategoryProducts
 
   return (
     <div className="min-h-screen bg-background">
