@@ -102,7 +102,7 @@ export function ProductCategoryTabs({ locale, categoryTabs, categoryProducts }: 
                   href={`/${locale}/products/${product.slug}`}
                   className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-[#8b7355] rounded-md hover:bg-[#6d5a43] transition-colors"
                 >
-                  View Details
+                  View More
                 </Link>
               </div>
             </div>
